@@ -1,0 +1,299 @@
+/* Base Styles */
+:root {
+  --primary-color: #8f8c00;
+  --secondary-color: #0f1011;
+  --accent-color: #e74c3c;
+  --light-color: #ecf0f1;
+  --dark-color: #2c3e50;
+  --success-color: #27ae60;
+  --warning-color: #f39c12;
+  --danger-color: #e74c3c;
+  --text-color: #333;
+  --border-radius: 8px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: #f5f5f5;
+}
+
+.app-container {
+  max-width: 800px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  box-shadow: var(--box-shadow);
+}
+
+/* Header Styles */
+header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1rem;
+  text-align: center;
+}
+
+header h1 {
+  margin-bottom: 0.5rem;
+}
+
+/* Main Content Styles */
+main {
+  flex: 1;
+  padding: 1rem;
+}
+
+/* Footer Styles */
+footer {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+/* Button Styles */
+.primary-button,
+.secondary-button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-weight: bold;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.primary-button {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.primary-button:hover {
+  background-color: #2980b9;
+}
+
+.secondary-button {
+  background-color: var(--light-color);
+  color: var(--dark-color);
+}
+
+.secondary-button:hover {
+  background-color: #bdc3c7;
+}
+
+/* Home Screen Styles */
+.home-screen {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.intro-text {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.qr-scanner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.scanner-container {
+  width: 100%;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+#qr-reader {
+  width: 100%;
+  border: 2px solid var(--secondary-color);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.quick-access {
+  text-align: center;
+  margin: 1rem 0;
+}
+
+.risk-categories {
+  margin-top: 1rem;
+}
+
+.risk-categories h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.risk-agents {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+}
+
+.risk-agent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--light-color);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.risk-agent:hover {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.risk-agent i {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Risk Selection Screen Styles */
+.risk-selection-screen {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.agent-info {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.risks-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.risk-item {
+  padding: 1rem;
+  background-color: var(--light-color);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.risk-item:hover {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.risk-item.selected {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+/* Report Risk Screen Styles */
+.report-risk-screen {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.selected-risk-info {
+  background-color: var(--light-color);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  margin-bottom: 1rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
+}
+
+.photo-preview {
+  margin-top: 1rem;
+  max-width: 100%;
+}
+
+.photo-preview img {
+  max-width: 100%;
+  border-radius: var(--border-radius);
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+/* Confirmation Screen Styles */
+.confirmation-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  gap: 1.5rem;
+}
+
+.confirmation-icon {
+  font-size: 5rem;
+  color: var(--success-color);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .risks-list {
+    grid-template-columns: 1fr;
+  }
+
+  .risk-agents {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .form-buttons {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .form-buttons button {
+    width: 100%;
+  }
+}
+

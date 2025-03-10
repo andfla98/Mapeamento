@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapeamento de Risco</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <h1>Mapeamento de Risco</h1>
+      <p>Universidade</p>
+    </header>
+
+    <main id="app-content">
+      <!-- Initial screen will be loaded here -->
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Mapeamento teste</p>
+      <p>Mestrado Profissional em Ciências Ambientais</p>
+    </footer>
+  </div>
+
+  <!-- Templates -->
+  <template id="home-screen">
+    <div class="home-screen">
+      <div class="intro-text">
+        <h2>Bem-vindo ao Mapeamento de Risco</h2>
+        <p>Para iniciar, aponte sua câmera para o QR code localizado no ambiente onde encontrou o risco.</p>
+      </div>
+      
+      <div class="qr-scanner">
+        <div class="scanner-container">
+          <div id="qr-reader"></div>
+          <button id="scan-qr" class="primary-button">
+            <i class="fas fa-qrcode"></i> Escanear QR Code
+          </button>
+        </div>
+      </div>
+      
+      <div class="quick-access">
+        <button id="quick-access-btn" class="secondary-button">
+          <i class="fas fa-bolt"></i> Acesso Rápido
+        </button>
+      </div>
+      
+      <div class="risk-categories">
+        <h3>Conheça os tipos de riscos:</h3>
+        <div class="risk-agents">
+          <div class="risk-agent" data-agent="fisico">
+            <i class="fas fa-bolt"></i>
+            <span>Físico</span>
+          </div>
+          <div class="risk-agent" data-agent="quimico">
+            <i class="fas fa-flask"></i>
+            <span>Químico</span>
+          </div>
+          <div class="risk-agent" data-agent="biologico">
+            <i class="fas fa-virus"></i>
+            <span>Biológico</span>
+          </div>
+          <div class="risk-agent" data-agent="ergonomico">
+            <i class="fas fa-user-injured"></i>
+            <span>Ergonômico</span>
+          </div>
+          <div class="risk-agent" data-agent="acidente">
+            <i class="fas fa-exclamation-triangle"></i>
+            <span>Acidente</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </template>
+
+  <template id="risk-selection-screen">
+    <div class="risk-selection-screen">
+      <h2>Selecione o Risco</h2>
+      <p>Escolha entre os agentes o risco que corresponde ao observado.</p>
+      
+      <div class="risk-selection">
+        <div class="agent-info">
+          <h3 id="selected-agent-name">Agente Físico</h3>
+          <p id="selected-agent-desc">Selecione o risco específico abaixo:</p>
+        </div>
+        
+        <div id="risks-list" class="risks-list">
+          <!-- Risks will be loaded here dynamically -->
+        </div>
+      </div>
+      
+      <div class="navigation-buttons">
+        <button id="back-to-home" class="secondary-button">
+          <i class="fas fa-arrow-left"></i> Voltar
+        </button>
+      </div>
+    </div>
+  </template>
+
+  <template id="report-risk-screen">
+    <div class="report-risk-screen">
+      <h2>Reportar Risco</h2>
+      
+      <div class="selected-risk-info">
+        <h3>Risco Selecionado:</h3>
+        <p id="selected-risk-name">Nome do Risco</p>
+        <p id="selected-risk-agent">Agente: Tipo do Agente</p>
+      </div>
+      
+      <form id="risk-report-form">
+        <div class="form-group">
+          <label for="location">Local:</label>
+          <input type="text" id="location" name="location" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="photo">Foto do Local (opcional):</label>
+          <input type="file" id="photo" name="photo" accept="image/*" capture="environment">
+          <div id="photo-preview" class="photo-preview"></div>
+        </div>
+        
+        <div class="form-group">
+          <label for="observation">Observações:</label>
+          <textarea id="observation" name="observation" rows="4"></textarea>
+        </div>
+        
+        <div class="form-buttons">
+          <button type="button" id="back-to-risks" class="secondary-button">
+            <i class="fas fa-arrow-left"></i> Voltar
+          </button>
+          <button type="submit" id="submit-report" class="primary-button">
+            <i class="fas fa-paper-plane"></i> Reportar Risco
+          </button>
+        </div>
+      </form>
+    </div>
+  </template>
+
+  <template id="confirmation-screen">
+    <div class="confirmation-screen">
+      <div class="confirmation-icon">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <h2>Risco Reportado com Sucesso!</h2>
+      <p>Obrigado por contribuir para um ambiente mais seguro.</p>
+      <button id="back-to-start" class="primary-button">
+        <i class="fas fa-home"></i> Voltar ao Início
+      </button>
+    </div>
+  </template>
+
+  <script src="https://unpkg.com/html5-qrcode"></script>
+  <script src="app.js"></script>
+</body>
+</html>
+
